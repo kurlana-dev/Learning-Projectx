@@ -1,0 +1,32 @@
+body {
+  background: #020617;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.glow-on-hover {
+  background: #0b1220;
+  color: #e6ffff;
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgb(27, 241, 248), 0 0 25px rgb(3, 230, 247);
+  transition: box-shadow 0.25s ease, transform 0.15s ease;
+}
+
+.glow-on-hover:hover,
+.glow-on-hover:focus {
+  box-shadow: 0 0 8px rgb(48, 201, 240), 0 0 40px rgb(255, 1, 200), 0 0 80px rgba(0, 255, 255, 0.12);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.glow-on-hover:active {
+  transform: translateY(0);
+}
