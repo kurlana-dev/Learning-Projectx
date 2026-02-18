@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulb Lightning</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        :root{
+            --bg : #070a13;
+            --lamp-color: #ffd700;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body{
+            background-color: var(--bg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            transition: background 0.3s ease;
+        }
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width:350px;
+
+        }
+        /* Lamp Styles */
+        .lamp-box{
+            font-size: 150px;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+        }
+
+        #lamp-icon {
+            color: #333;
+            transition: 0.2s ease;
+            
+        }
+
+        /* Slider Styles */
+        .controls{
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        input[type="range"]{
+            width: 100%;
+           cursor: pointer;
+           accent-color: var(--lamp-color);
+        }
+
+        .label-box{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            font-weight: 600;
+            color: #aaa;
+        }
+
+        #percentage{color: var(--lamp-color);}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="lamp-box">
+            <i class='bx bxs-bulb' id="lamp-icon"></i>
+        </div>
+   
+        <div class="controls">
+            <input type="range" id="brightness-slider" min="0" max="100" value="0">
+            <div class="label-box">
+                <span>Brightness</span>
+                <span id="percentage">0%</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        const slider = document.getElementById('brightness-slider');
+        const lampIcon = document.getElementById('lamp-icon');
+        const percentage = document.getElementById('percentage');
+
+        slider.addEventListener('input', function() {
+            const brightnessValue = this.value;
+            percentage.textContent = `${brightnessValue}%`;
+            
+            // Control lamp brightness
+            lampIcon.style.color = `rgba(255, 215, 0, ${brightnessValue / 100})`;
+            
+            // Control background - from dark to light
+            const lightness = 7 + (brightnessValue / 100) * 93; // Goes from 7% to 100%
+            document.body.style.backgroundColor = `hsl(220, 30%, ${lightness}%)`;
+        });
+    </script>
+</body>
+</html>
