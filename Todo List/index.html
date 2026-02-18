@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Todo List</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <div class="todo-container">
+            <div class="header">
+                <h1>To-Do List</h1>
+                <div class="date" id="currentDate"></div>
+            </div>
+
+            <!-- Add Task Form -->
+             <div class="add-task form" id="addTaskForm">
+                <input type="text" class="task-input" id="taskInput" placeholder="Enter new task...">
+                <div class="form-buttons">
+                    <button class="small-btn save" onclick="addTask()">Add Task</button>
+                    <button class="small- btn cancel" onclick="toggleAddForm()">Cancel</button>
+                </div>
+             </div>
+
+             <!-- Task List -->
+              <div class="task-list" id="taskList">
+                <div class="empty-state">
+                    No task yet. Click "Add Task" to create your first task.
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+               <div class="button-group">
+                <button class="btn btn-primary" onclick="toggleAddForm()">Add Task</button>
+                <button class="btn btn-secondary" onclick="deleteCompletedTasks()">Delete Completed</button>
+               </div>
+        </div>
+
+      
+    </body>
+</html>
